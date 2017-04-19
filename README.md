@@ -1,9 +1,14 @@
-# api documentation for  [hashmark (v4.1.0)](https://github.com/keithamus/hashmark#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-hashmark.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hashmark) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hashmark.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hashmark)
+# npmdoc-hashmark
+
+#### api documentation for  [hashmark (v4.1.0)](https://github.com/keithamus/hashmark#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-hashmark.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hashmark) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hashmark.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hashmark)
+
 #### Take contents of a file (or stdin), and output as new file with a hash in the name
 
-[![NPM](https://nodei.co/npm/hashmark.png?downloads=true)](https://www.npmjs.com/package/hashmark)
+[![NPM](https://nodei.co/npm/hashmark.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/hashmark)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-hashmark/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-hashmark_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-hashmark/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-hashmark/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-hashmark/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-hashmark/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-hashmark/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-hashmark/build/screenCapture.npmPackageListing.svg)
 
@@ -56,13 +61,11 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "keithamus",
-            "email": "npm@keithcirkel.co.uk"
+            "name": "keithamus"
         }
     ],
     "name": "hashmark",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/keithamus/hashmark.git"
@@ -94,16 +97,6 @@
     "version": "4.1.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module hashmark](#apidoc.module.hashmark)
-
-
-
-# <a name="apidoc.module.hashmark"></a>[module hashmark](#apidoc.module.hashmark)
 
 
 
