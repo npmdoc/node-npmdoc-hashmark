@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/keithamus/hashmark#readme"
-
-    >hashmark (v4.1.0)</a>
+    <a href="https://github.com/keithamus/hashmark#readme">hashmark (v4.1.0)</a>
 </h1>
 <h4>Take contents of a file (or stdin), and output as new file with a hash in the name</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.hashmark">module hashmark</a><ol>
 
@@ -90,22 +83,22 @@
     var mapEvents = new EventEmitter();
     var fileCount = contents.length;
     var map = {};
-    if (!callback &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+    if (!callback &amp;&amp; typeof options === 'function') {
         callback = options;
         options = {};
     }
-    options.digest = options.digest || &#x27;sha256&#x27;;
+    options.digest = options.digest || 'sha256';
     options.length = options.length || 0;
     if (callback) {
-        mapEvents.on(&#x27;error&#x27;, callback);
-        mapEvents.on(&#x27;end&#x27;, function (map) {
+        mapEvents.on('error', callback);
+        mapEvents.on('end', function (map) {
             callback(null, map);
         });
     }
 
     contents.forEach(function(contents){
       if (contents instanceof Stream.Readable) {
-          contents.fileName = contents.fileName || &#x27;&#x3c;anonymous&#x3e;&#x27;;
+          contents.fileName = contents.fileName || '&lt;anonymous&gt;';
           fileContents(contents);
       } else {
           fs.stat(contents, function(err, stats){
@@ -119,20 +112,20 @@
     });
 
     function fileContents(stream) {
-        var contents = new Buffer(&#x27;&#x27;);
+        var contents = new Buffer('');
         var hash = crypto.createHash(options.digest);
-        hash.on(&#x27;error&#x27;, mapEvents.emit.bind(mapEvents, &#x27;error&#x27;));
-        stream.on(&#x27;error&#x27;, mapEvents.emit.bind(mapEvents, &#x27;error&#x27;));
+        hash.on('error', mapEvents.emit.bind(mapEvents, 'error'));
+        stream.on('error', mapEvents.emit.bind(mapEvents, 'error'));
         if (options.pattern) {
             var contentStream = new Stream.PassThrough();
-            contentStream.on(&#x27;error&#x27;, mapEvents.emit.bind(mapEvents, &#x27;error&#x27;));
-            contentStream.on(&#x27;data&#x27;, function (chunk) {
+            contentStream.on('error', mapEvents.emit.bind(mapEvents, 'error'));
+            contentStream.on('data', function (chunk) {
                 contents = Buffer.concat([contents, chunk]);
             });
             stream.pipe(contentStream);
         }
-        stream.on(&#x27;end&#x27;, function () {
-            var digest = hash.digest(&#x27;hex&#x27;);
+        stream.on('end', function () {
+            var digest = hash.digest('hex');
             if (options.length) {
                 digest = digest.slice(0, options.length);
             }
@@ -143,37 +136,37 @@
                 if (options.rename === true ) {
                     fs.rename(stream.fileName, fileName, function (err) {
                         if (err) {
-                            return mapEvents.emit(&#x27;error&#x27;, err);
+                            return mapEvents.emit('error', err);
                         }
-                        mapEvents.emit(&#x27;file&#x27;, stream.fileName, fileName);
+                        mapEvents.emit('file', stream.fileName, fileName);
                     });
                 } else {
                     mkdirp(path.dirname(fileName), function (err) {
                         if (err) {
-                            return mapEvents.emit(&#x27;error&#x27;, err);
+                            return mapEvents.emit('error', err);
                         } else {
                             fs.writeFile(fileName, contents, function (err) {
                                 if (err) {
-                                    return mapEvents.emit(&#x27;error&#x27;, err);
+                                    return mapEvents.emit('error', err);
                                 }
-                                mapEvents.emit(&#x27;file&#x27;, stream.fileName, fileName);
+                                mapEvents.emit('file', stream.fileName, fileName);
                             });
                         }
                     });
                 }
 
             } else {
-                mapEvents.emit(&#x27;file&#x27;, stream.fileName, digest);
+                mapEvents.emit('file', stream.fileName, digest);
             }
         });
         stream.pipe(hash, { end: false });
     }
 
-    return mapEvents.on(&#x27;file&#x27;, function (fileName, newFileName) {
+    return mapEvents.on('file', function (fileName, newFileName) {
         map[path.relative(options.cwd, fileName)] = path.relative(options.cwd, newFileName);
         fileCount--;
         if (fileCount === 0) {
-            mapEvents.emit(&#x27;end&#x27;, map);
+            mapEvents.emit('end', map);
         }
     });
 }</pre></li>
@@ -189,3 +182,4 @@
     ]
 </div>
 </div>
+</body></html>
